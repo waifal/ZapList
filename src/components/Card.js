@@ -81,7 +81,9 @@ template.innerHTML = `
 class Card extends HTMLElement {
     constructor() {
         super();
+    }
 
+    connectedCallback() {
         this.attachShadow({ mode: 'open' });
         this.shadowRoot.appendChild(template.content.cloneNode(true));
 
@@ -95,7 +97,7 @@ class Card extends HTMLElement {
         text.textContent = this.getAttribute('zl-text');
 
         this.hasAttribute('zl-flex-rev') ? this.shadowRoot.querySelector('.container').classList.add('flex-reverse') : '';
-    
+
         const img = this.shadowRoot.querySelector('img');
         img.src = this.getAttribute('zl-src');
         img.alt = this.getAttribute('zl-alt');

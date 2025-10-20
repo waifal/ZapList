@@ -28,7 +28,9 @@ template.innerHTML = `
 class Header extends HTMLElement {
     constructor() {
         super();
+    }
 
+    connectedCallback() {
         this.attachShadow({ mode: 'open' });
         this.shadowRoot.appendChild(template.content.cloneNode(true));
     }
