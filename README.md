@@ -8,5 +8,5 @@ There’s nothing complicated about it. Just open the app, add what you need to 
 
 ZapList is built to be clear, easy to use, and helpful — no extra stuff you don’t need just a simple way to stay on top of things.
 
-## Example - v1.0.0
+## Example - v1.0.1
 ![Example](screenshot.png)
