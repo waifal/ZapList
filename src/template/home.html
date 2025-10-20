@@ -1,0 +1,49 @@
+<!-- Navigation Bar -->
+<zl-navbar></zl-navbar>
+<!-- Header -->
+<zl-header>
+    <!-- Title -->
+    <h1 slot="title">A simple <span>todo</span> list to <br>
+        <span class="emp-text"> manage it all.
+            <svg class="beam" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="taperedGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#FFEB99" />
+                        <stop offset="50%" stop-color="#FFC107" />
+                        <stop offset="100%" stop-color="#B8860B" />
+                    </linearGradient>
+                </defs>
+                <path d="M0,45 L0,55 L100,90 L100,10 Z" fill="url(#taperedGradient)" />
+            </svg>
+        </span>
+    </h1>
+    <!-- Text -->
+    <p slot="text">
+        <b>Stay on top of your day</b> — effortlessly plan, prioritize, and power through your tasks. <br>
+        Whether it's personal goals, family plans, or team projects, organize everything seamlessly in one
+        place. Trusted by millions who get things done.
+    </p>
+    <a href="#">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+    <img src="https://uizard.io/static/82d21dcc085d1d02b0e2e7f89f676e87/a8e47/725a90250b61118b17fd5b2fb94a0a6af3c42b31-1440x835.png"
+        alt="Placeholder">
+</zl-header>
+<!-- Extra Content -->
+<section>
+    <div>
+        <!-- Card #1 -->
+        <zl-card zl-title="Organize Everything" zl-small="Todo List"
+            zl-text="ZapList helps you keep track of everything—tasks, goals, or ideas—so you stay organized and get things done."
+            zl-src="https://www.webdash.co.za/wp-content/uploads/2024/11/to-do-list-app-4.jpg"
+            zl-alt="Todo List"></zl-card>
+        <!-- Card #2 -->
+        <zl-card zl-flex-rev zl-title="Track time and stay focused" zl-small="Pomodoro"
+            zl-text="Track time and stay focused. Break your work into 25-minute chunks, take short breaks, and stay productive."
+            zl-src="https://cdn.dribbble.com/userupload/34460910/file/original-07a8021c584d42d43c5710bfe491f51d.jpg?resize=400x0"
+            zl-alt="Pomodoro"></zl-card>
+        <!-- Card #3 -->
+        <zl-card zl-title="Build and maintain good habits" zl-small="Habit Tracker"
+            zl-text="Build good habits by starting small and doing them regularly. Stick with it each day to make progress."
+            zl-src="https://cdn.dribbble.com/userupload/24429788/file/original-0978569232df8eee8904563b14ef2e17.png?resize=752x&vertical=center"
+            zl-alt="Habit Tracker"></zl-card>
+    </div>
+</section>
