@@ -1,3 +1,5 @@
+import './Badge.js';
+
 // Configuration
 const config = {
     brand: {
@@ -35,7 +37,7 @@ class Navbar extends HTMLElement {
         super();
     }
 
-        #_styles() {
+    #_styles() {
         const style = document.createElement('style');
         style.textContent = `
             nav {
@@ -47,6 +49,7 @@ class Navbar extends HTMLElement {
                 justify-content: space-between;
                 position: sticky;
                 top: 0;
+                z-index: 9999;
             }
 
             ul {
@@ -63,9 +66,33 @@ class Navbar extends HTMLElement {
                 text-decoration-line: none;
                 }
                 
-                nav > div:first-child > a {
+            nav > div:first-child > a {
                     font-weight: bold;
                     font-size: 1.2rem;
+            }
+
+            nav > div:last-child {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                flex-wrap: wrap;
+            }
+
+            nav > div:last-child > a {
+                color: #111;
+                font-weight: bold;
+                position: relative;
+            }
+
+            nav > div:last-child > a::after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                border-top: solid 3px #111;
+                left: 0;
+                bottom: -10px;
+                border-radius: 50%;
+                height: 7px;
             }
         `;
 
@@ -77,35 +104,45 @@ class Navbar extends HTMLElement {
 
         // Create Elements | Branding
         const brandContainer = createEl('div');
-        const a   = createEl('a');
+        const a = createEl('a');
         // Set Properties
         a.href = config['brand']['href'];
         a.textContent = config['brand']['label'];
         // Append Element
         brandContainer.appendChild(a);
-        
-        const linksContainer  = createEl('ul');
-        for(const link of config['links']) {
+
+        const linksContainer = createEl('ul');
+        for (const link of config['links']) {
             // Create Elements | Links
-            const li  = createEl('li');
-            const a   = createEl('a');
+            const li = createEl('li');
+            const a = createEl('a');
             // Set Properties
             a.href = link['href'];
             a.textContent = link['label'];
-            
+
             // Append Elements
             li.appendChild(a);
             linksContainer.appendChild(li);
+
+            // Badge
+            if (link['label'].toLowerCase() === 'try me') {
+                Object.assign(li.style, {
+                    display: 'flex',
+                    columnGap: '0.25rem'
+                });
+                li.innerHTML += '<zl-badge></zl-badge>';
+            }
         }
 
         // Create Element | Call to action
         const ctaContainer = createEl('div');
-        for(const link of config['cta']) {
+        for (const link of config['cta']) {
             // Create Elements | Call to action
-            const a   = createEl('a');
+            const a = createEl('a');
             // Set Properties
             a.href = link['href'];
             a.textContent = link['label'];
+
             // Append Elements
             ctaContainer.appendChild(a);
         }
