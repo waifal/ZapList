@@ -41,15 +41,30 @@ class Navbar extends HTMLElement {
         const style = document.createElement('style');
         style.textContent = `
             nav {
-                max-width: 1100px;
                 height: 112px;
+                align-content: center;
+                position: sticky;
+                top: 0;
+                z-index: 9999;
+                transition: background-color 0.095s linear, box-shadow 0.095s linear;
+            }
+
+            nav > .container {
+                max-width: 1100px;
                 margin: 0 auto;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                position: sticky;
-                top: 0;
-                z-index: 9999;
+            }
+
+            nav.scrolled {
+                border-bottom: 1px solid #eee;
+                background-color: rgb(255, 255, 255, 0.97);
+                box-shadow: 0 2px 3px 1px rgb(0 0 0 / 2%);
+            }
+
+            nav.scrolled a {
+                color: #000;
             }
 
             ul {
@@ -64,27 +79,27 @@ class Navbar extends HTMLElement {
             a {
                 color: #3a3a3a;
                 text-decoration-line: none;
-                }
+            }
                 
-            nav > div:first-child > a {
+            nav > .container > div:first-child > a {
                     font-weight: bold;
                     font-size: 1.2rem;
             }
 
-            nav > div:last-child {
+            nav > .container > div:last-child {
                 display: flex;
                 justify-content: center;
                 gap: 10px;
                 flex-wrap: wrap;
             }
 
-            nav > div:last-child > a {
+            nav > .container > div:last-child > a {
                 color: #111;
                 font-weight: bold;
                 position: relative;
             }
 
-            nav > div:last-child > a::after {
+            nav > .container > div:last-child > a::after {
                 content: '';
                 position: absolute;
                 width: 100%;
@@ -101,6 +116,9 @@ class Navbar extends HTMLElement {
 
     #_build() {
         const createEl = (elementName) => document.createElement(elementName);
+
+        const container = createEl('div');
+        container.className = 'container';
 
         // Create Elements | Branding
         const brandContainer = createEl('div');
@@ -150,7 +168,8 @@ class Navbar extends HTMLElement {
         // Create Element | Navigation
         const nav = createEl('nav');
         // Append Elements
-        nav.append(brandContainer, linksContainer, ctaContainer);
+        container.append(brandContainer, linksContainer, ctaContainer);
+        nav.appendChild(container);
 
         return nav;
     }
@@ -158,6 +177,18 @@ class Navbar extends HTMLElement {
     connectedCallback() {
         this.attachShadow({ mode: 'open' });
         this.shadowRoot.append(this.#_styles(), this.#_build());
+
+        window.addEventListener('scroll', this.#_handleScroll.bind(this));
+    }
+
+    #_handleScroll() {
+        const nav = this.shadowRoot.querySelector('nav');
+
+        if(window.scrollY > 0) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
     }
 }
 
