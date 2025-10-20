@@ -29,11 +29,6 @@ class Header extends HTMLElement {
     constructor() {
         super();
 
-        this.defaults = {
-            title: 'Main Title',
-            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, natus.'
-        }
-
         this.attachShadow({ mode: 'open' });
         this.shadowRoot.appendChild(template.content.cloneNode(true));
     }
