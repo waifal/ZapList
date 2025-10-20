@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZapList</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <div id="app">
+        <zl-navbar></zl-navbar>
+        <zl-header>
+            <!-- Title -->
+            <h1 slot="title">A simple <span>todo</span> list to <br>
+                <span class="emp-text"> manage it all.
+                    <svg class="beam" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <defs>
+                            <linearGradient id="taperedGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#FFEB99" /> <!-- soft gold shimmer -->
+                                <stop offset="50%" stop-color="#FFC107" /> <!-- true rich gold -->
+                                <stop offset="100%" stop-color="#B8860B" /> <!-- deep golden bronze -->
+                            </linearGradient>
+                        </defs>
+                        <path d="M0,45 L0,55 L100,90 L100,10 Z" fill="url(#taperedGradient)" />
+                    </svg>
+                </span>
+            </h1>
+            <!-- Text -->
+            <p slot="text">
+                <b>Stay on top of your day</b> — effortlessly plan, prioritize, and power through your tasks. <br>
+                Whether it's personal goals, family plans, or team projects, organize everything seamlessly in one
+                place. Trusted by millions who get things done.
+            </p>
+            <a href="#">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+            <img src="https://uizard.io/static/82d21dcc085d1d02b0e2e7f89f676e87/a8e47/725a90250b61118b17fd5b2fb94a0a6af3c42b31-1440x835.png" alt="Placeholder">
+        </zl-header>
+    </div>
+    <!-- JavaScript -->
+    <script src="src/app.js" type="module"></script>
+</body>
+
+</html>
