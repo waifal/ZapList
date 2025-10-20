@@ -1,3 +1,4 @@
 // Web Components
 import './components/Navbar.js';        // Navbar
-import './components/Header.js'         // Header
+import './components/Header.js';        // Header
+import './components/Card.js';          // Card
